@@ -2,34 +2,36 @@
     //parameters received by post or get method
     $param1="age=120";
     $param2="sex=m";
-    $param3="date='2020-07-23'";
     //n parameters
 
-    $query="SELECT bla bla bla WHERE";
+    $query="SELECT bla bla bla FROM table WHERE";
     $previous=0;
     if($param1!=''){
         if($previous)
-            $query=$query." AND ".$param1;
+            $query=$query." AND ";
         else{
-            $query=$query." ".$param1;
+            $query=$query."	WHERE ";
             $previous=1;
         }
+        $query=$query." field=".$param1;
     }
     if($param2!=''){
         if($previous)
-            $query=$query." AND ".$param2;
+            $query=$query." AND ";
         else{
-            $query=$query." ".$param2;
+            $query=$query."	WHERE ";
             $previous=1;
         }
+        $query=$query." field=".$param2;
     }
-    if($param3!=''){
+    if($paramN!=''){
         if($previous)
-            $query=$query." AND ".$param3;
+            $query=$query." AND ";
         else{
-            $query=$query." ".$param3;
+            $query=$query."	WHERE ";
             $previous=1;
         }
+        $query=$query." field=".$paramN;
     }
     echo $query;
     
